@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import LogOutButton from "../LogOutButton/LogOutButton";
+import { Fade } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 
 class UserPage extends Component {
-
   // this component doesn't do much to start, just renders some user info to the DOM
   render() {
     return (
       <div>
-        <h1 id="welcome">Welcome, {this.props.user.username}!</h1>
-        <p>Your ID is: {this.props.user.id}</p>
-        <LogOutButton className="log-in" />
+        <div className="slide-container">
+          <Fade>
+            <div className="each-fade">
+              <div className="image-container">
+                <img src="img/coriander1.jpg" />
+              </div>
+            </div>
+            <div className="each-fade">
+              <div className="image-container">
+                <img src="img/coriander2.jpg" />
+              </div>
+            </div>
+            <div className="each-fade">
+              <div className="image-container">
+                <img src="img/coriander3.jpg" />
+              </div>
+            </div>
+        </Fade>
+        </div>
       </div>
     );
   }
 }
 
-// Instead of taking everything from state, we just want the user info.
-const mapStateToProps = (state) => ({
-  user: state.user,
-});
-
-// this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(UserPage);
+export default UserPage;
