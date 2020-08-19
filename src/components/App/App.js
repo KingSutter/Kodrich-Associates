@@ -10,7 +10,7 @@ import {connect} from 'react-redux';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+import Home from '../Home/Home';
 import InfoPage from '../InfoPage/InfoPage';
 
 import './App.css';
@@ -42,7 +42,7 @@ class App extends Component {
             <Route
               exact
               path="/home"
-              component={UserPage}
+              component={Home}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
@@ -52,7 +52,7 @@ class App extends Component {
               component={InfoPage}
             />
             {/* If none of the other routes matched, we will show a 404. */}
-            <Route render={() => <h1>404</h1>} />
+            <Route render={() => <><h1 style={{textAlign: "center"}}>Error 404</h1><h2 style={{textAlign: "center"}}>This page does not exist</h2></>} />
           </Switch>
           <Footer />
         </div>

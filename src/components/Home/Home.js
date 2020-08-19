@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Fade } from 'react-slideshow-image';
 import Grid from '@material-ui/core/Grid';
 import 'react-slideshow-image/dist/styles.css';
-import './UserPage.css';
+import './Home.css';
 import {withRouter} from 'react-router-dom';
 
 class UserPage extends Component {
