@@ -13,6 +13,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import Home from '../Home/Home';
 import InfoPage from '../InfoPage/InfoPage';
 import Vendors from '../Vendors/Vendors';
+import Contact from '../Contact/Contact';
 
 import './App.css';
 
@@ -56,6 +57,11 @@ class App extends Component {
               exact
               path="/vendors"
               component={Vendors}
+            />
+            <Route
+              exact
+              path="/contact"
+              component={Contact}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <><h1 style={{textAlign: "center"}}>Error 404</h1><h2 style={{textAlign: "center"}}>This page does not exist</h2></>} />
