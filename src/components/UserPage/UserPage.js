@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { Fade } from 'react-slideshow-image';
+import Grid from '@material-ui/core/Grid';
 import 'react-slideshow-image/dist/styles.css';
+import './UserPage.css';
+import {withRouter} from 'react-router-dom';
 
 class UserPage extends Component {
-  // this component doesn't do much to start, just renders some user info to the DOM
+  handleImageClick = (vendor) => {
+    this.props.history.push({
+      pathname: `/vendors/${vendor}`
+    })
+  }
+
   render() {
     return (
       <div>
@@ -26,9 +34,24 @@ class UserPage extends Component {
             </div>
         </Fade>
         </div>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          className = "grid-item"
+          >
+          <div className = "logo-container">
+            <img className="companyLogo" onClick={()=>this.handleImageClick("coriander")} src="img/Coriander-logo-blue.png"/>
+            <img className="companyLogo" onClick={()=>this.handleImageClick("om")} src="img/om-logo.png"/>
+            <img className="companyLogo" onClick={()=>this.handleImageClick("standup")} src="img/Stand-Up-Header-Logo-3.png"/>
+            <img className="companyLogo" onClick={()=>this.handleImageClick("invincible")} src="img/unnamed.png"/>
+          </div>
+        </Grid>
+        <pre>{JSON.stringify(this.props, null, 2)}</pre>
       </div>
     );
   }
 }
 
-export default UserPage;
+export default withRouter(UserPage);

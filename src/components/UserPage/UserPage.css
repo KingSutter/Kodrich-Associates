@@ -1,0 +1,22 @@
+.container{
+    text-align:center;
+    border:1px solid #666;
+}
+
+.companyLogo{
+    display:inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; 
+    max-width: 250px;
+}
+
+.slide-container img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
+/* 
+.slide-container {
+    max-width: 500px;
+} */
