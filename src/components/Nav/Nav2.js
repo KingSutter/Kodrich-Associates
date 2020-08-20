@@ -5,7 +5,6 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem'
-import {withRouter} from 'react-router-dom';
 import './Nav.css';
 import { render } from 'react-dom';
 
@@ -24,8 +23,7 @@ class Nav extends Component {
 
   handleClose = (event) => {
     event.preventDefault();
-    this.setState({open: false});
-    // if (vendor != null) this.props.history.push(`/vendors/${vendor}`);
+    this.setState({open: false, anchorEl: event.currentTarget});
   }
 
   render() {
@@ -42,16 +40,16 @@ class Nav extends Component {
         <Link className="nav-link" to="/about">
           About
         </Link>
-        {/* <Link className="nav-link" to="/vendors">
+        <Link className="nav-link" to="/vendors">
           Vendors
-        </Link> */}
+        </Link>
         <Link 
           aria-controls="simple-menu" 
           className="nav-link" to="/vendors"
           aria-haspopup="true" 
           onOpen={(event)=>this.handleOpen}
           onMouseOver={this.handleOpen}
-          MenuListProps={{ onMouseLeave: this.handleClose }}
+          // onMouseLeave={this.handleClose}
           >
           Vendors ⇂
         </Link>
@@ -60,13 +58,11 @@ class Nav extends Component {
           anchorEl={this.state.anchorEl}
           open={this.state.open}
           keepMounted
-          onClose={this.handleClose}
-          MenuListProps={{ onMouseLeave: this.handleClose }}
+          onRequestClose={this.handleClose}
         >
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/coriander`)}>Coriander</MenuItem>
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/om`)}>OM</MenuItem>
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/standup`)}>StandUp</MenuItem>
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/invincible`)}>Invincible</MenuItem>
+          <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+          <MenuItem onClick={this.handleClose}>My account</MenuItem>
+          <MenuItem onClick={this.handleClose}>Logout</MenuItem>
         </Menu>
         <Link className="nav-link" to="/contact">
           Contact
@@ -77,4 +73,4 @@ class Nav extends Component {
   }
 }
 
-export default withRouter(Nav);
+export default Nav;
