@@ -1,6 +1,9 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
+    /* keeps footer at bottom of page when the content is taller than the footer*/
+    position: relative;
+    min-height: 100vh;
 }
 
 .alert {
