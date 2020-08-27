@@ -1,3 +1,8 @@
 .vendors-page img {
     width: 300px;
 }
+
+.vendors-page table {
+    margin-left: auto;
+    margin-right: auto;
+}
