@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import '../VendorLandings.css';
 
-class StandUp extends Component {
+class AFRA extends Component {
     render() {
         return (
             <div>
                 <div>
                     <p>
-                        This is the Stand Up landing page
+                        This is the AFRA landing page
                     </p>
                 </div>
             </div>
@@ -15,4 +14,4 @@ class StandUp extends Component {
     }
 }
 
-export default StandUp;
+export default AFRA;

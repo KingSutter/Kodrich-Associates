@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem'
 import {withRouter} from 'react-router-dom';
 import './Nav.css';
-import { render } from 'react-dom';
 
 
 
@@ -63,10 +59,11 @@ class Nav extends Component {
           onClose={this.handleClose}
           MenuListProps={{ onMouseLeave: this.handleClose }}
         >
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/coriander`)}>Coriander</MenuItem>
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/om`)}>OM</MenuItem>
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/standup`)}>StandUp</MenuItem>
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/invincible`)}>Invincible</MenuItem>
+          <MenuItem onClick={()=>this.props.history.push(`/vendors/coriander`)}>Coriander Designs</MenuItem>
+          <MenuItem onClick={()=>this.props.history.push(`/vendors/om`)}>OM Seating</MenuItem>
+          <MenuItem onClick={()=>this.props.history.push(`/vendors/standup`)}>Stand Up Desking</MenuItem>
+          <MenuItem onClick={()=>this.props.history.push(`/vendors/invincible`)}>Invincible Furniture</MenuItem>
+          <MenuItem onClick={()=>this.props.history.push(`/vendors/afra`)}>AFRA Furniture</MenuItem>
         </Menu>
         <Link className="nav-link" to="/contact">
           Contact

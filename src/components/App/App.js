@@ -18,6 +18,7 @@ import OM from '../Vendors/OM/OM.js'
 import Coriander from '../Vendors/Coriander/Coriander.js'
 import StandUp from '../Vendors/StandUp/StandUp.js'
 import Invincible from '../Vendors/Invincible/Invincible.js'
+import AFRA from '../Vendors/AFRA/AFRA.js'
 
 import './App.css';
 
@@ -63,6 +64,10 @@ class App extends Component {
             <Route
               exact path="/vendors/invincible"
               component={Invincible}
+            />
+            <Route
+              exact path="/vendors/afra"
+              component={AFRA}
             />
             <Route
               exact path="/contact"
