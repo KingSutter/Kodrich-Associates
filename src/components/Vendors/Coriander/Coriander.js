@@ -6,7 +6,7 @@ class Coriander extends Component {
         return (
             <div>
                 <div className="mission-header">
-                    <img src="img/Coriander-logo-blue.png" alt="Coriander company logo" width="356" style={{marginTop: "1%", marginLeft: "1%"}}/>
+                    <img src="img/Coriander-logo.png" alt="Coriander company logo" width="356" style={{marginTop: "1%", marginLeft: "1%"}}/>
                     <p>
                     Manufactured in the USA. 
                     Coriander Designs offers products and services that address the unique needs in Corporate, Healthcare and the Education Environments. 

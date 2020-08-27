@@ -59,6 +59,7 @@ class Nav extends Component {
           onClose={this.handleClose}
           MenuListProps={{ onMouseLeave: this.handleClose }}
         >
+          <MenuItem onClick={()=>this.props.history.push(`/vendors`)}>Vendors Overview</MenuItem>
           <MenuItem onClick={()=>this.props.history.push(`/vendors/coriander`)}>Coriander Designs</MenuItem>
           <MenuItem onClick={()=>this.props.history.push(`/vendors/om`)}>OM Seating</MenuItem>
           <MenuItem onClick={()=>this.props.history.push(`/vendors/standup`)}>Stand Up Desking</MenuItem>

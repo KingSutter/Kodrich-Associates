@@ -42,11 +42,11 @@ class UserPage extends Component {
           className = "grid-item"
           >
           <div className = "logo-container">
-            <img className="companyLogo" onClick={()=>this.handleImageClick("coriander")} src="img/Coriander-logo-blue.png"/>
+            <img className="companyLogo" onClick={()=>this.handleImageClick("coriander")} src="img/Coriander-logo.png"/>
             <img className="companyLogo" onClick={()=>this.handleImageClick("om")} src="img/om-logo.png"/>
-            <img className="companyLogo" onClick={()=>this.handleImageClick("standup")} src="img/Stand-Up-Header-Logo-3.png"/>
+            <img className="companyLogo" onClick={()=>this.handleImageClick("standup")} src="img/Standup-logo.png"/>
             <img className="companyLogo" onClick={()=>this.handleImageClick("invincible")} src="img/Invincible-logo.png"/>
-            <img className="companyLogo" onClick={()=>this.handleImageClick("afra")} src="img/logo-afra-furniture.png"/>
+            <img className="companyLogo" onClick={()=>this.handleImageClick("afra")} src="img/Afra-logo.png"/>
           </div>
         </Grid>
         <pre>{JSON.stringify(this.props, null, 2)}</pre>
