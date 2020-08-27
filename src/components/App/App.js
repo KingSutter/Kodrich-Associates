@@ -32,10 +32,6 @@ class App extends Component {
         <div>
           <Nav />
           <Switch>
-            {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            {/* <Redirect exact from="/" to="/home" /> */}
-            {/* Visiting localhost:3000/about will show the about page.
-            This is a route anyone can see, no login necessary */}
             <Route
               exact path="/about"
               component={AboutPage}
@@ -44,8 +40,6 @@ class App extends Component {
               exact path="/"
               component={Home}
             />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
             <Route
               exact path="/info"
               component={InfoPage}
@@ -75,7 +69,7 @@ class App extends Component {
               component={Contact}
             />
 
-            {/* If none of the other routes matched, we will show a 404. */}
+            {/* If none of the other routes matched, show a 404. */}
             <Route render={() => <><h1 style={{textAlign: "center"}}>Error 404</h1><h2 style={{textAlign: "center"}}>This page does not exist</h2></>} />
           </Switch>
           <Footer />

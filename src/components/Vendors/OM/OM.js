@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import './OM.css';
+import '../VendorLandings.css';
 
 class OM extends Component {
     render() {
         return (
             <div>
+                <div className="mission-header">
+                    <img src="img/om-logo.png" style={{marginTop: "1%", marginLeft: "1%"}}/>
+                    <p>
+                    The OM mission is to solve everyday seating requirements with value-based and ergonomic focused product.  
+                    We are focused on delivering smart solutions to our customers wide range of needs.  
+                    We stock many fabrics to offer our quick shipping on our products.  
+                    Quality, cost efficient product for Corporate, Education, Healthcare, Government or Hospitality.
+                    </p></div>
                 <table width="500" border="0" cellpadding="10" className="vendor-preview-images">
                     <tr>
                         <td align="center" valign="center">
