@@ -29,7 +29,7 @@ class UserPage extends Component {
             </div>
             <div className="each-fade">
               <div className="image-container">
-                <img src="img/coriander3.jpg" />
+                <img src="img/frontPageHeader1.jpeg" />
               </div>
             </div>
         </Fade>
@@ -49,7 +49,7 @@ class UserPage extends Component {
             <img className="companyLogo" onClick={()=>this.handleImageClick("afra")} src="img/Afra-logo.png"/>
           </div>
         </Grid>
-        <pre>{JSON.stringify(this.props, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(this.props, null, 2)}</pre> */}
       </div>
     );
   }

@@ -1,5 +1,6 @@
 .vendors-page img {
     width: 300px;
+    cursor: pointer;
 }
 
 .vendors-page table {

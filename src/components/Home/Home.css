@@ -4,19 +4,34 @@
 }
 
 .companyLogo{
-    display:inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%; 
-    max-width: 250px;
+    width: 50%;
+    max-width: 212px;
+    margin: 40px 40px 40px 40px;
+    cursor: pointer;
 }
 
+.slide-container
+
 .slide-container img {
-    max-width: 100%;
+    /* max-width: 100%; */
+    object-fit: cover;
     height: auto;
-    width: auto\9;
+    width: 100%;
+    /* max-height: 500px; */
 }
 /* 
 .slide-container {
     max-width: 500px;
 } */
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.logo-container img {
+    flex-grow: 1;
+}

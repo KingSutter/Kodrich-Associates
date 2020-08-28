@@ -34,13 +34,6 @@ class Nav extends Component {
         <Link className="nav-link" to="/">
           Home
         </Link>
-        {/* Show the link to the info page and the logout button if the user is logged in */}
-        <Link className="nav-link" to="/about">
-          About
-        </Link>
-        {/* <Link className="nav-link" to="/vendors">
-          Vendors
-        </Link> */}
         <Link 
           aria-controls="simple-menu" 
           className="nav-link" to="/vendors"
@@ -66,6 +59,9 @@ class Nav extends Component {
           <MenuItem onClick={()=>this.props.history.push(`/vendors/invincible`)}>Invincible Furniture</MenuItem>
           <MenuItem onClick={()=>this.props.history.push(`/vendors/afra`)}>AFRA Furniture</MenuItem>
         </Menu>
+        <Link className="nav-link" to="/about">
+          About
+        </Link>
         <Link className="nav-link" to="/contact">
           Contact
         </Link>

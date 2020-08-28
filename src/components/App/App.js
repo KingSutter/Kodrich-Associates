@@ -9,7 +9,7 @@ import {
 import {connect} from 'react-redux';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-import AboutPage from '../AboutPage/AboutPage';
+import About from '../About/About';
 import Home from '../Home/Home';
 import InfoPage from '../InfoPage/InfoPage';
 import Vendors from '../Vendors/Vendors';
@@ -35,7 +35,7 @@ class App extends Component {
           <Switch>
             <Route
               exact path="/about"
-              component={AboutPage}
+              component={About}
             />
             <Route
               exact path="/"
