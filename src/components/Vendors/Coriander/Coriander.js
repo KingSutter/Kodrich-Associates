@@ -15,21 +15,21 @@ class Coriander extends Component {
                 <table width="500" border="0" cellpadding="10" className="vendor-preview-images">
                     <tr>
                         <td align="center" valign="center">
-                            <a href="https://www.corianderdesigns.com/products/taylor-collection/" target="_blank">
+                            <a href="https://www.corianderdesigns.com/products/taylor-collection/" target="_blank" rel="noopener noreferrer">
                                 <img src="img/Coriander-Taylor.jpg" alt="Talor collection preview" />
                                 <br />
                                 Taylor Collection
                             </a>
                         </td>
                         <td align="center" valign="center">
-                            <a href="https://www.corianderdesigns.com/products-page/" target="_blank">
+                            <a href="https://www.corianderdesigns.com/products-page/" target="_blank" rel="noopener noreferrer">
                                 <img src="img/Coriander-Lounge.jpg" alt="Lounge furniture preview" />
                                 <br />
                                 Lounge Furnature
                             </a>
                         </td>
                         <td align="center" valign="center">
-                            <a href="https://www.corianderdesigns.com/products-page/" target="_blank">
+                            <a href="https://www.corianderdesigns.com/products-page/" target="_blank" rel="noopener noreferrer">
                                 <img src="img/Coriander-Lounge2-cropped.jpg" alt="Lounge furniture preview 2" />
                                 <br />
                                 Lounge Furnature
@@ -40,14 +40,14 @@ class Coriander extends Component {
                 <table width="500" border="0" cellpadding="10" className="vendor-preview-images">
                     <tr>
                         <td align="center" valign="center">
-                            <a href="https://www.corianderdesigns.com/products/technology-conference-table/" target="_blank">
+                            <a href="https://www.corianderdesigns.com/products/technology-conference-table/" target="_blank" rel="noopener noreferrer">
                                 <img src="img/Coriander-Conference.jpg" alt="Conference Tables preview" />
                                 <br />
                                 Conference Tables
                             </a>
                         </td>
                         <td align="center" valign="center">
-                            <a href="https://www.corianderdesigns.com/product_category/occasional-tables/" target="_blank">
+                            <a href="https://www.corianderdesigns.com/product_category/occasional-tables/" target="_blank" rel="noopener noreferrer">
                                 <img src="img/Coriander-Occasional.jpg" alt="Occasional Tables preview" />
                                 <br />
                                 Occasional Tables
