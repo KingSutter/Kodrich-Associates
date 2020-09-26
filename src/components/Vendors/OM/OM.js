@@ -60,7 +60,6 @@ class OM extends Component {
                             </a>
                         </td>
                     </tr>
-                    
                 </table>
             </div>
         );

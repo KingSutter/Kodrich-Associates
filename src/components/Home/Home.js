@@ -102,7 +102,7 @@ class UserPage extends Component {
             <img className="companyLogo" onClick={()=>this.handleImageClick("invincible")} src="img/Invincible-logo.png"/>
             <img className="companyLogo" id="afraLogo" onClick={()=>this.handleImageClick("afra")} src="img/Afra-logo.png"/>
           </div>
-        <pre>{JSON.stringify(this.state, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
       </div>
     );
   }
