@@ -1,0 +1,12 @@
+.form-container {
+    width: 50%;
+    background: lightblue;
+    display: inline-block;
+}
+
+.info-container {
+    width: 50%;
+    background: orange;
+    display: inline-block;
+    font-size: 20px;
+}

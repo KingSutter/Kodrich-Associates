@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class AFRA extends Component {
     render() {
         return (
-            <div className="om-page">
+            <div className="AFRA-page">
                 <div className="mission-header">
                     <img src="img/Afra-logo.png" style={{marginTop: "1%", marginLeft: "1%", maxWidth: "250px"}}/>
                     <p>
