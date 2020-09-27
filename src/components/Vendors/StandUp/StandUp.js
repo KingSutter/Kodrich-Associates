@@ -4,7 +4,7 @@ import '../VendorLandings.css';
 class StandUp extends Component {
     render() {
         return (
-            <div className="StandUp-page">
+            <div className="StandUp-page" style={{paddingBottom: "6vh"}}>
                 <div className="mission-header">
                     <img src="img/Standup-logo.png" style={{marginTop: "1%", marginLeft: "1%"}}/>
                     <p>
@@ -58,6 +58,9 @@ class StandUp extends Component {
                         </td>
                     </tr>
                 </table>
+                <div className="page-footer">
+                    <p>If you would like more information about the StandUp line of products, <a href="http://localhost:3000/#/contact">click here to contact us</a>.</p>
+                </div>
             </div>
         );
     }

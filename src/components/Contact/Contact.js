@@ -39,8 +39,12 @@ class Contact extends React.Component {
   render() {
     return (
       <div className="Contact-page">
+        <div className="page-header">
+          <h2>Contact Us</h2>
+          <p>Please feel free to contact us at any time and we'll do our best to get back to you as soon as possible during normal business hours.</p>
+        </div>
         <div className="flex-container">
-          <div className="form-container">
+          {/* <div className="form-container">
             <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -56,7 +60,7 @@ class Contact extends React.Component {
               </div>
               <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-          </div>
+          </div> */}
           <div className="info-container">
             <h4>Our address:</h4>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824.7114898087175!2d-93.46421218424635!3d44.929202377001765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f61e357c38818f%3A0x5b0e059e915bb0fe!2s14333%20Oakwood%20Rd%2C%20Minnetonka%2C%20MN%2055345!5e0!3m2!1sen!2sus!4v1601166390742!5m2!1sen!2sus" 

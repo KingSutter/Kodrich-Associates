@@ -35,6 +35,9 @@ class AFRA extends Component {
                         </td>
                     </tr>
                 </table>
+                <div className="page-footer" style={{marginTop: "6vh"}}>
+                    <p>If you would like more information about the AFRA line of products, <a href="http://localhost:3000/#/contact">click here to contact us</a>.</p>
+                </div>
             </div>
         );
     }

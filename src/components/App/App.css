@@ -51,6 +51,21 @@ input {
     cursor: pointer;
 }
 
+.page-header {
+  padding-left: 3vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  background: #9cfdff40;
+}
+
+.page-footer {
+  padding-left: 3vw;
+  margin-top: 2vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  background: #9cfdff40;
+  text-align: center;
+}
 
 /* Set the background color of body to tan */
 /* body {

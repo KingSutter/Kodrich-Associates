@@ -4,7 +4,7 @@ import '../VendorLandings.css';
 class Coriander extends Component {
     render() {
         return (
-            <div>
+            <div style={{paddingBottom: "6vh"}}>
                 <div className="mission-header">
                     <img src="img/Coriander-logo.png" alt="Coriander company logo" width="356" style={{marginTop: "1%", marginLeft: "1%"}}/>
                     <p>
@@ -55,6 +55,9 @@ class Coriander extends Component {
                         </td>
                     </tr>
                 </table>
+                <div className="page-footer">
+                    <p>If you would like more information about the Coriander line of products, <a href="http://localhost:3000/#/contact">click here to contact us</a>.</p>
+                </div>
             </div>
         );
     }

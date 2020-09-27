@@ -4,7 +4,8 @@ import '../VendorLandings.css';
 class OM extends Component {
     render() {
         return (
-            <div className="om-page">
+            <div className="om-page" >
+               
                 <div className="mission-header">
                     <img src="img/om-logo.png" style={{marginTop: "1%", marginLeft: "1%"}}/>
                     <p>
@@ -61,6 +62,9 @@ class OM extends Component {
                         </td>
                     </tr>
                 </table>
+                <div className="page-footer">
+                    <p>If you would like more information about the OM line of products, <a href="http://localhost:3000/#/contact">click here to contact us</a>.</p>
+                </div>
             </div>
         );
     }
