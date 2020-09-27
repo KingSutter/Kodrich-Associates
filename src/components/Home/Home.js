@@ -87,11 +87,6 @@ class UserPage extends Component {
             </div>
           </Fade>
         </div>
-        {/* <div className="slideshow">
-          <img src={fadeImages[0]} alt="slideshow image" id="slideshowImage1" />
-          <img src={fadeImages[1]} alt="slideshow image" id="slideshowImage2"/>
-          <img src={fadeImages[2]} alt="slideshow image" id="slideshowImage3"/>
-        </div> */}
         <div className="mission-statement">
         Dedicated to provide you with product knowledge, hands on assistance, customer service, demos and quality manufacturers. Our goal is to “Make doing Business Easy”.
         </div>
