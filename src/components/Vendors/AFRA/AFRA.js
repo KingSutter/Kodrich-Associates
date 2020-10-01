@@ -5,7 +5,7 @@ class AFRA extends Component {
         return (
             <div className="AFRA-page">
                 <div className="mission-header">
-                    <img src="img/Afra-logo.png" style={{marginTop: "1%", marginLeft: "1%", maxWidth: "250px"}}/>
+                <a href="https://www.afrafurniture.com/" target="_blank" rel="noopener noreferrer"><img src="img/Afra-logo.png" style={{marginTop: "1%", marginLeft: "1%", maxWidth: "250px"}}/></a>
                     <p>
                     AFRA Furniture offers a commercial and industrial furniture design representing comfort and innovation, using a broad spectrum of materials, technologies, finishes and colors. We are focused on diversity in design that is suitable for every project and environment. AFRA is continuously looking to offer durability, purpose and harmony in all of our furniture.
                     </p>

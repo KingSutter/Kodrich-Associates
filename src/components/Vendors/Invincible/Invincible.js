@@ -6,54 +6,51 @@ class Invincible extends Component {
             <div className="Invincible-page" style={{paddingBottom: "6vh"}}>
                 
                 <div className="mission-header">
-                    <img src="img/invincible-logo.png" style={{marginTop: "1%", marginLeft: "1%", maxWidth: "320px"}}/>
+                    <a href="https://www.invinciblefurniture.com/" target="_blank" rel="noopener noreferrer"><img src="img/invincible-logo.png" style={{marginTop: "1%", marginLeft: "1%", maxWidth: "320px"}}/></a>
                     <p>
-                    Empowering employees to transition from seated to standing positions throughout the day can help increase productivity and improve employee wellness. With mechanisms for all major office furniture manufacturers, standUP makes it easy for designers and dealers to spec standUP’s sit/stand mechanisms into new projects, or retrofit existing office furniture.
+                    Invincible Furniture has always stood for quality, and for more than 100 years Invincible™ has been manufacturing products in the United States, using skilled U.S. labor, strong product designs, and quality U.S. materials. In fact, over 90% of Invincible’ s total spend is for U.S. goods and services (including materials and labor).
+In addition, Invincible™ continues to use quality raw materials, including heavier (thicker) steel than most of our competitors, and designs that incorporate more forming for added strength, durability, and aesthetics.  
+
                     </p></div>
                 <table width="500" border="0" cellpadding="10" className="vendor-preview-images">
                     <tr>
                         <td align="center" valign="center">
-                            <a href="https://www.omseating.com/series/om5-active/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/OM5.jpg" alt="OM5 series preview" />
+                            <a href="https://www.invinciblefurniture.com/products_tables_flipnest.php" target="_blank" rel="noopener noreferrer">
+                                <img src="img/invincible-flipnest.jpg" alt="Flipnest preview" />
                                 <br />
-                                OM5 Active Series
+                                Flipnest Tables
                             </a>
                         </td>
                         <td align="center" valign="center">
-                            <a href="https://www.omseating.com/series/truly/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/Truly.jpeg" alt="Truly series preview" />
+                            <a href="https://www.invinciblefurniture.com/products_desks_educator_series.php" target="_blank" rel="noopener noreferrer">
+                                <img src="img/invincible-educator.jpg" alt="Educator preview" />
                                 <br />
-                                Truly Series
+                                Educator Ironworks Desks
                             </a>
                         </td>
                         <td align="center" valign="center">
-                            <a href="https://www.omseating.com/series/ginny/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/Ginny.jpeg" alt="Ginny series preview" />
+                            <a href="https://www.invinciblefurniture.com/products_vistamodular_overview.php" target="_blank" rel="noopener noreferrer">
+                                <img src="img/invincible-vista.jpg" alt="Vista preview" />
                                 <br />
-                                Ginny Series
+                                Vista Modular Workspace
                             </a>
                         </td>
                     </tr>
+                </table>
+                <table width="500" border="0" cellpadding="10" className="vendor-preview-images">
                     <tr>
                         <td align="center" valign="center">
-                            <a href="https://www.omseating.com/series/yes-series/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/YESstools.jpg" alt="YES series stools preview" />
+                            <a href="https://www.invinciblefurniture.com/products_tables_training.php" target="_blank" rel="noopener noreferrer">
+                                <img src="img/invincible-training.jpg" alt="Training preview" />
                                 <br />
-                                YES Series Stools
+                                Education Training Tables
                             </a>
                         </td>
                         <td align="center" valign="center">
-                            <a href="https://www.omseating.com/series/yes-series/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/YESchairs.jpeg" alt="YES series chairs preview" />
+                            <a href="https://www.invinciblefurniture.com/products_filingstorage_lateralfiles.php" target="_blank" rel="noopener noreferrer">
+                                <img src="img/invincible-lateral.jpg" alt="Lateral filing storage preview" />
                                 <br />
-                                YES Series Chairs
-                            </a>
-                        </td>
-                        <td align="center" valign="center">
-                            <a href="https://www.omseating.com/series/classic-exam-room-stools/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/ClassicExamRoom.jpeg" alt="Exam room stools preview" />
-                                <br />
-                                Exam Room Stools
+                                Lateral Filing and Storage
                             </a>
                         </td>
                     </tr>

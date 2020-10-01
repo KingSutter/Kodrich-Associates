@@ -7,7 +7,7 @@ class OM extends Component {
             <div className="om-page" >
                
                 <div className="mission-header">
-                    <img src="img/om-logo.png" style={{marginTop: "1%", marginLeft: "1%"}}/>
+                <a href="https://www.omseating.com/" target="_blank" rel="noopener noreferrer"><img src="img/om-logo.png" alt="OM company logo" style={{marginTop: "1%", marginLeft: "1%"}}/></a>
                     <p>
                     The OM mission is to solve everyday seating requirements with value-based and ergonomic focused product.  
                     We are focused on delivering smart solutions to our customers wide range of needs.  
