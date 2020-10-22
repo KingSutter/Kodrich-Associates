@@ -12,6 +12,10 @@
 } */
 
 .info-container {
-    margin: auto;
-    width: 50%;
+    margin-left: 3vw;
+    /* width: 70%; */
+}
+
+.info-container h4 {
+    display: inline;
 }

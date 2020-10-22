@@ -62,8 +62,9 @@ class Contact extends React.Component {
             </form>
           </div> */}
           <div className="info-container">
-            <h4>Our address:</h4>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824.7114898087175!2d-93.46421218424635!3d44.929202377001765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f61e357c38818f%3A0x5b0e059e915bb0fe!2s14333%20Oakwood%20Rd%2C%20Minnetonka%2C%20MN%2055345!5e0!3m2!1sen!2sus!4v1601166390742!5m2!1sen!2sus" 
+            <h4>Our address:</h4><br/>
+            {/* Interactive map below, remove the comment code and brackets to reactivate it */}
+            {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824.7114898087175!2d-93.46421218424635!3d44.929202377001765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f61e357c38818f%3A0x5b0e059e915bb0fe!2s14333%20Oakwood%20Rd%2C%20Minnetonka%2C%20MN%2055345!5e0!3m2!1sen!2sus!4v1601166390742!5m2!1sen!2sus" 
               width="400" 
               height="300" 
               frameborder="0" 
@@ -72,11 +73,11 @@ class Contact extends React.Component {
               aria-hidden="false" 
               tabindex="0">
             </iframe>
-            <br/>
+            <br/> */}
             <a href="https://goo.gl/maps/wdAusCJoAjLz9pRT8" target="_blank" rel="noopener noreferrer">14333 Oakwood Road<br/>Minnetonka, MN 55345</a>
-            <br/>
+            <br/><br/>
             <b>Phone: </b><a href="tel:6127162352">612-716-2352 </a>
-            <br/>
+            <br/><br/>
             <b>Email: </b><a href="mailto:kodrich@hotmail.com">kodrich@hotmail.com</a><br/><br/>
             <b>Hours: </b>
             <div>Monday to Friday, 9am - 5pm</div>
