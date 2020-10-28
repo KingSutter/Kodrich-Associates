@@ -56,7 +56,7 @@ In addition, Invincible™ continues to use quality raw materials, including hea
                     </tr>
                 </table>
                 <div className="page-footer">
-                    <p>If you would like more information about the Invincible line of products, <a href="http://localhost:3000/#/contact">click here to contact us</a>.</p>
+                    <p>If you would like more information about the Invincible line of products, <a href="http://kodrichassociates.com/#/contact">click here to contact us</a>.</p>
                 </div>
             </div>
         );

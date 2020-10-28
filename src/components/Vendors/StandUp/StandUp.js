@@ -27,7 +27,7 @@ class StandUp extends Component {
                     </tr>
                 </table>
                 <div className="page-footer" style={{marginTop: "100px"}}>
-                    <p>If you would like more information about the StandUp line of products, <a href="http://localhost:3000/#/contact">click here to contact us</a>.</p>
+                    <p>If you would like more information about the StandUp line of products, <a href="http://kodrichassociates.com/#/contact">click here to contact us</a>.</p>
                 </div>
             </div>
         );

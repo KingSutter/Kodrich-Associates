@@ -14,7 +14,7 @@ class Vendors extends Component {
             <div className="vendors-page" style={{paddingBottom: "10vh"}}>
                 <div className="page-header">
                     <h2>Vendors</h2>
-                    <p>If you would like more information about our products, <a href="http://localhost:3000/#/contact">click here to contact us</a>.</p>
+                    <p>If you would like more information about our products, <a href="http://kodrichassociates.com/#/contact">click here to contact us</a>.</p>
                 </div>
                 <table width="90%" border="0" cellpadding="30%">
                     <tr>
