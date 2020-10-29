@@ -151,11 +151,6 @@ class UserPage extends Component {
                 <img src={fadeImages[20]} alt="slide image 21" />
               </div>
             </div>
-            <div className="each-fade">
-              <div className="image-container">
-                <img src={fadeImages[21]} alt="slide image 22" />
-              </div>
-            </div>
           </Fade>
         </div>
         <div className="mission-statement">
