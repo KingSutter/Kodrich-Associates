@@ -16,7 +16,7 @@ import Vendors from '../Vendors/Vendors';
 import Contact from '../Contact/Contact';
 import OM from '../Vendors/OM/OM.js'
 import Coriander from '../Vendors/Coriander/Coriander.js'
-import StandUp from '../Vendors/StandUp/StandUp.js'
+// import StandUp from '../Vendors/StandUp/StandUp.js'
 import Invincible from '../Vendors/Invincible/Invincible.js'
 import AFRA from '../Vendors/AFRA/AFRA.js'
 
@@ -57,10 +57,10 @@ class App extends Component {
               exact path="/vendors/coriander"
               component={Coriander}
             />
-            <Route
+            {/* <Route
               exact path="/vendors/standup"
               component={StandUp}
-            />
+            /> */}
             <Route
               exact path="/vendors/invincible"
               component={Invincible}

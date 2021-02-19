@@ -33,14 +33,14 @@ class Vendors extends Component {
                             The OM mission is to solve everyday seating requirements with value-based and ergonomic focused product. We are focused on delivering smart solutions to our customers wide range of needs. We stock many fabrics to offer our quick shipping on our products. Quality, cost efficient product for Corporate, Education, Healthcare, Government or Hospitality.
                         </td>
                     </tr>
-                    <tr>
+                    {/* <tr>
                         <td>
                             <img src="img/Standup-logo.png" alt="Standup logo" onClick={()=>this.handleImageClick("standup")}/>
                         </td>
                         <td>
                             Empowering employees to transition from seated to standing positions throughout the day can help increase productivity and improve employee wellness. With mechanisms for all major office furniture manufacturers, standUP makes it easy for designers and dealers to spec standUP’s sit/stand mechanisms into new projects, or retrofit existing office furniture.
                         </td>
-                    </tr>
+                    </tr> */}
                     <tr>
                         <td>
                             <img src="img/Invincible-logo.png" alt="Invincible logo" onClick={()=>this.handleImageClick("invincible")}/>
