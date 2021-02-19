@@ -30,7 +30,7 @@ class Coriander extends Component {
                         </td>
                         <td align="center" valign="center">
                             <a href="https://www.corianderdesigns.com/products-page/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/Coriander-Lounge2-cropped.jpg" alt="Lounge furniture preview 2" />
+                                <img src="img/Coriander-Lounge2-Cropped.jpg" alt="Lounge furniture preview 2" />
                                 <br />
                                 Lounge Furnature
                             </a>
