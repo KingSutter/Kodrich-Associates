@@ -14,11 +14,12 @@ import Home from '../Home/Home';
 import InfoPage from '../InfoPage/InfoPage';
 import Vendors from '../Vendors/Vendors';
 import Contact from '../Contact/Contact';
-import OM from '../Vendors/OM/OM.js'
-import Coriander from '../Vendors/Coriander/Coriander.js'
-// import StandUp from '../Vendors/StandUp/StandUp.js'
-import Invincible from '../Vendors/Invincible/Invincible.js'
-import AFRA from '../Vendors/AFRA/AFRA.js'
+import OM from '../Vendors/OM/OM.js';
+import Coriander from '../Vendors/Coriander/Coriander.js';
+// import StandUp from '../Vendors/StandUp/StandUp.js';
+import Invincible from '../Vendors/Invincible/Invincible.js';
+import AFRA from '../Vendors/AFRA/AFRA.js';
+import {Chat} from 'react-chat-popup';
 
 import './App.css';
 
@@ -27,9 +28,17 @@ class App extends Component {
     this.props.dispatch({type: 'FETCH_USER'})
   }
 
+  handleNewUserMessage = (newMessage) => {
+    console.log(`New message incoming! ${newMessage}`);
+    // Now send the message through the backend API
+  }
+
   render() {
     return (
       <Router>
+        {/* <Chat
+          handleNewUserMessage={this.handleNewUserMessage}
+        /> */}
         <div>
           <Nav />
           <Switch>

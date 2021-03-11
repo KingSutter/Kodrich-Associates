@@ -1,19 +1,25 @@
 import React from 'react';
 import axios from 'axios';
 import './Contact.css';
+// import {MicRecorder} from 'mic-recorder-to-mp3';
+const MicRecorder = require('mic-recorder-to-mp3');
 
-// still in development for a safe option
+const Mp3Recorder = new MicRecorder({bitrate: 128});
 
 class Contact extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       name: '',
       email: '',
-      message: ''
+      message: '',
+      isRecording: false,
+      blobURL: '',
+      isBlocked: false,
     }
   }
+  
+  // Mp3Recorder = new MicRecorder({bitrate: 128});
 
   handleSubmit(e) {
     e.preventDefault();
@@ -31,6 +37,44 @@ class Contact extends React.Component {
     })
   }
 
+  // Asks user for microphone permission
+  componentDidMount() {
+    navigator.getUserMedia({ audio: true },
+      () => {
+        console.log('Permission Granted');
+        this.setState({ isBlocked: false });
+      },
+      () => {
+        console.log('Permission Denied');
+        this.setState({ isBlocked: true })
+      },
+    );
+  }
+
+  // Start recording
+  start = () => {
+    if (this.state.isBlocked) {
+      console.log('Permission Denied');
+    } else {
+      Mp3Recorder
+        .start()
+        .then(() => {
+          this.setState({ isRecording: true });
+        }).catch((e) => console.error(e));
+    }
+  };
+
+  // On stoppping the recording
+  stop = () => {
+    Mp3Recorder
+      .stop()
+      .getMp3()
+      .then(([buffer, blob]) => {
+        const blobURL = URL.createObjectURL(blob)
+        this.setState({ blobURL, isRecording: false });
+      }).catch((e) => console.log(e));
+  };
+
   resetForm() {
 
     this.setState({ name: '', email: '', message: '' })
@@ -44,7 +88,7 @@ class Contact extends React.Component {
           <p>Please feel free to contact us at any time and we'll do our best to get back to you as soon as possible during normal business hours.</p>
         </div>
         <div className="flex-container">
-          {/* <div className="form-container">
+          <div className="form-container">
             <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -59,8 +103,16 @@ class Contact extends React.Component {
                 <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
               </div>
               <button type="submit" className="btn btn-primary">Submit</button>
+              {/* record button */}
+              <button onClick={this.start} disabled={this.state.isRecording}>
+                Record
+              </button>
+              <button onClick={this.stop} disabled={!this.state.isRecording}>
+                Stop
+              </button>
+              <audio src={this.state.blobURL} controls="controls" />
             </form>
-          </div> */}
+          </div>
           <div className="info-container">
             <h4>Our address:</h4><br/>
             {/* Interactive map below, remove the comment code and brackets to reactivate it */}
@@ -83,7 +135,7 @@ class Contact extends React.Component {
             <div>Monday to Friday, 9am - 5pm</div>
           </div>
         </div>
-        {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
+        <pre>{JSON.stringify(this.state, null, 2)}</pre>
       </div >
     );
   }
