@@ -21,21 +21,21 @@ class Contact extends React.Component {
   
   // Mp3Recorder = new MicRecorder({bitrate: 128});
 
-  handleSubmit(e) {
-    e.preventDefault();
-    axios({
-      method: "POST",
-      url: "http://localhost:3002/send",
-      data: this.state
-    }).then((response) => {
-      if (response.data.status === 'success') {
-        alert("Message Sent.");
-        this.resetForm()
-      } else if (response.data.status === 'fail') {
-        alert("Message failed to send.")
-      }
-    })
-  }
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   axios({
+  //     method: "POST",
+  //     url: "http://localhost:3002/send",
+  //     data: this.state
+  //   }).then((response) => {
+  //     if (response.data.status === 'success') {
+  //       alert("Message Sent.");
+  //       this.resetForm()
+  //     } else if (response.data.status === 'fail') {
+  //       alert("Message failed to send.")
+  //     }
+  //   })
+  // }
 
   // Asks user for microphone permission
   componentDidMount() {
