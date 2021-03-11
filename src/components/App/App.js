@@ -19,7 +19,7 @@ import Coriander from '../Vendors/Coriander/Coriander.js';
 // import StandUp from '../Vendors/StandUp/StandUp.js';
 import Invincible from '../Vendors/Invincible/Invincible.js';
 import AFRA from '../Vendors/AFRA/AFRA.js';
-import {Chat} from 'react-chat-popup';
+// import {Chat} from 'react-chat-popup';
 
 import './App.css';
 

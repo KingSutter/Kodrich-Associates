@@ -89,7 +89,7 @@ class Contact extends React.Component {
         </div>
         <div className="flex-container">
           <div className="form-container">
-            <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+            <form id="contact-form">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
                 <input type="text" className="form-control" id="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
