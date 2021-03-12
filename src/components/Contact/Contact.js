@@ -86,9 +86,8 @@ class Contact extends React.Component {
           url: 'https://api.assemblyai.com/v2/upload',
           headers: { 
             'Transfer-Encoding': 'chunked', 
-            'Authorization': `Bearer [API KEY HERE]`, // add in API key client-side, this is public at the moment
+            'Authorization': `Bearer [KEY HERE]`, // add in API key client-side, this is public at the moment
             'Content-Type': 'audio/mpeg', 
-            'Cookie': 'AWSALB=mG+8uuCdN7mRVVTW735xCgH1rbSGtiP8ju8tEilPL4tFyeGsFXt3P4tvwg4/3ym0ZyFW4q+o408T96vXSLUWNcIrOxQIVyM9NirpCdsHg15oceV7uoVSYOTFocqM; AWSALBCORS=mG+8uuCdN7mRVVTW735xCgH1rbSGtiP8ju8tEilPL4tFyeGsFXt3P4tvwg4/3ym0ZyFW4q+o408T96vXSLUWNcIrOxQIVyM9NirpCdsHg15oceV7uoVSYOTFocqM'
           },
           data : data
         };
@@ -105,8 +104,7 @@ class Contact extends React.Component {
             url: 'https://api.assemblyai.com/transcript',
             headers: { 
               'Content-Type': 'application/json', 
-              'Authorization': 'Bearer [API KEY HERE]', // add in API key client-side, this is public at the moment
-              'Cookie': 'AWSALB=V2WSvQVYqQuAWvXofAdvM4DtvDAU3qPwjwqfDrEuxIKtiFjbGAtB8rq/1gkzdqopoxI147U13raNhKrfYrQkq2X1P4rorbp8bdpgd2Y88qExKGuHMvvmzbUdkpZy; AWSALBCORS=V2WSvQVYqQuAWvXofAdvM4DtvDAU3qPwjwqfDrEuxIKtiFjbGAtB8rq/1gkzdqopoxI147U13raNhKrfYrQkq2X1P4rorbp8bdpgd2Y88qExKGuHMvvmzbUdkpZy'
+              'Authorization': 'Bearer [KEY HERE]', // add in API key client-side, this is public at the moment
             },
             data : data
           };
@@ -121,8 +119,7 @@ class Contact extends React.Component {
                 method: 'get',
                 url: `https://api.assemblyai.com/transcript/${response.data.transcript.id}`,
                 headers: { 
-                  'Authorization': 'Bearer [API KEY HERE]', // add in API key client-side, this is public at the moment
-                  'Cookie': 'AWSALB=7saooVq3NLCvJ5HIuMj7AjXuoojSENd+dybzQMCox0mSo2WSGVINjdnOPYYrnje5R/vLI31/XxCYWTybahObkNIrEtiq/FmY8GBvTfnqQOpQG2PT/MiJMubd/Dz7; AWSALBCORS=7saooVq3NLCvJ5HIuMj7AjXuoojSENd+dybzQMCox0mSo2WSGVINjdnOPYYrnje5R/vLI31/XxCYWTybahObkNIrEtiq/FmY8GBvTfnqQOpQG2PT/MiJMubd/Dz7'
+                  'Authorization': 'Bearer [KEY HERE]', // add in API key client-side, this is public at the moment
                 }
               };
 
