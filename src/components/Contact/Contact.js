@@ -94,7 +94,7 @@ class Contact extends React.Component {
 
         axios(config)
         .then((response) => {
-          console.log("Upload URL" + response.data.upload_url);
+          console.log("Upload URL " + response.data.upload_url);
           // Request uploaded audio file for transcription to API
           console.log("first request complete, starting second...");
           var data = JSON.stringify({"audio_src_url":response.data.upload_url});
@@ -126,13 +126,16 @@ class Contact extends React.Component {
               axios(config)
               .then((response) => {
                 console.log(JSON.stringify(response.data));
-                localThis.setState({message: response.data.transcript.text})
+                //only if the request returns a completed transcription will the message change
+                if (response.data.transcript.text != null){
+                localThis.setState({message: this.state.message + response.data.transcript.text})
+              }
               })
               .catch(function (error) {
                 console.log(error);
               });
 
-            }, 15000);
+            }, 20000);
           })
           .catch(function (error) {
             console.log(error);
