@@ -3,14 +3,17 @@ import axios from 'axios';
 import './Contact.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { green, purple } from '@material-ui/core/colors';
-import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
+import Icon from '@material-ui/core/Icon';
+import SaveIcon from '@material-ui/icons/Save';
+import CancelIcon from '@material-ui/icons/Cancel';
+import SendIcon from '@material-ui/icons/Send';
 // import dotenv from 'dotenv';
 
 const dotenv = require('dotenv').config();
 
 const MicRecorder = require('mic-recorder-to-mp3');
-
 const Mp3Recorder = new MicRecorder({bitrate: 128});
 
 const theme = createMuiTheme({
@@ -70,9 +73,13 @@ class Contact extends React.Component {
     }
   };
 
+  cancel = () => {
+    this.setState({isRecording: false });
+    Mp3Recorder
+      .stop()
+  }
   // On stoppping the recording ... send voice recording to API and insert into message box
   stop = () => {
-    var localThis = this;
     Mp3Recorder
       .stop()
       .getMp3()
@@ -128,7 +135,7 @@ class Contact extends React.Component {
                 console.log(JSON.stringify(response.data));
                 //only if the request returns a completed transcription will the message change
                 if (response.data.transcript.text != null){
-                localThis.setState({message: this.state.message + response.data.transcript.text})
+                this.setState({message: this.state.message + response.data.transcript.text})
               }
               })
               .catch(function (error) {
@@ -207,6 +214,7 @@ class Contact extends React.Component {
                     placeholder="John/Jane Doe"
                     variant="filled"
                     value={this.state.name} onChange={this.onNameChange.bind(this)}
+                    fullWidth={true}
                   />
                 </div>
                 <div className="form-group">
@@ -219,6 +227,7 @@ class Contact extends React.Component {
                     placeholder="example@gmail.com"
                     variant="filled"
                     value={this.state.email} onChange={this.onEmailChange.bind(this)}
+                    fullWidth={true}
                   />
                 </div>
                 <div className="form-group">
@@ -236,15 +245,16 @@ class Contact extends React.Component {
                     />
                 </div>
                 {/* record button */}
-                  <Button className="record-buttons" onClick={this.start} disabled={this.state.isRecording} variant="contained" color="primary">
+                  <Button className="record-buttons" onClick={this.start} disabled={this.state.isRecording} variant="contained" color="primary" startIcon={<KeyboardVoiceIcon />}>
                     Record
                   </Button>
-                  
+                  <Button className="record-buttons" onClick={this.cancel} disabled={!this.state.isRecording} variant="contained" color="primary" startIcon={<CancelIcon />}>Cancel</Button>
                   {/* stop button */}
-                  <Button className="record-buttons" onClick={this.stop} disabled={!this.state.isRecording} variant="contained" color="primary">
-                    Stop
+                  <br/><br/>
+                  <Button className="record-buttons" onClick={this.stop} disabled={!this.state.isRecording} variant="contained" color="primary" startIcon={<SaveIcon />}>
+                    Transcribe
                   </Button><br/><br/>
-                  <Button type="submit" variant="contained" color="primary" onClick={()=>this.handleSubmit()}>Submit</Button>
+                  <Button type="submit" variant="contained" color="primary" onClick={()=>this.handleSubmit() } startIcon={<SendIcon />}>Send</Button>
                 
                 {/* The commented out code below shows the recorded audio file. Will save for later if needed */}
                 {/* <audio src={this.state.blobURL} controls="controls" /> */}
