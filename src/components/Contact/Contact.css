@@ -1,13 +1,13 @@
-.form-container {
+/* .form-container {
     width: 50%;
-    /* background: lightblue; */
+    background: lightblue;
     display: inline-block;
     height: auto;
-}
+} */
 
-.form-control {
+/* .form-control {
     width: 100%;
-}
+} */
 
 /* .info-container {
     width: 50%;
@@ -17,10 +17,29 @@
 } */
 
 .info-container {
+    margin-top: 2vh;
     margin-left: 3vw;
     /* width: 70%; */
 }
 
+.form-container {
+    /* margin-top: 1vh; */
+    margin-left: 3vw;
+    margin-bottom: 3vh;
+}
+
 .info-container h4 {
     display: inline;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.form-group {
+    padding-bottom: 1vh;
+}
+
+.record-buttons {
+    margin-right: 3vw;
 }
