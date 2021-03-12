@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import './Contact.css';
-// import {MicRecorder} from 'mic-recorder-to-mp3';
+import {FromControl} from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 const MicRecorder = require('mic-recorder-to-mp3');
 
 const Mp3Recorder = new MicRecorder({bitrate: 128});
@@ -16,26 +17,15 @@ class Contact extends React.Component {
       isRecording: false,
       blobURL: '',
       isBlocked: false,
+      convertedMessage: '',
     }
   }
   
   // Mp3Recorder = new MicRecorder({bitrate: 128});
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   axios({
-  //     method: "POST",
-  //     url: "http://localhost:3002/send",
-  //     data: this.state
-  //   }).then((response) => {
-  //     if (response.data.status === 'success') {
-  //       alert("Message Sent.");
-  //       this.resetForm()
-  //     } else if (response.data.status === 'fail') {
-  //       alert("Message failed to send.")
-  //     }
-  //   })
-  // }
+  handleSubmit() {
+    // Sends email to Kodrich Associates
+  }
 
   // Asks user for microphone permission
   componentDidMount() {
@@ -64,19 +54,90 @@ class Contact extends React.Component {
     }
   };
 
-  // On stoppping the recording
+  // On stoppping the recording ... send voice recording to API and insert into message box
   stop = () => {
+    var localThis = this;
     Mp3Recorder
       .stop()
       .getMp3()
       .then(([buffer, blob]) => {
         const blobURL = URL.createObjectURL(blob)
+        var axios = require('axios');
+        // begin file upload to API
+        var data = blob;
+
+        var config = {
+          method: 'post',
+          url: 'https://api.assemblyai.com/v2/upload',
+          headers: { 
+            'Transfer-Encoding': 'chunked', 
+            'Authorization': 'Bearer 37875e2f19134f3daee66ff2e1286489', 
+            'Content-Type': 'audio/mpeg', 
+            'Cookie': 'AWSALB=mG+8uuCdN7mRVVTW735xCgH1rbSGtiP8ju8tEilPL4tFyeGsFXt3P4tvwg4/3ym0ZyFW4q+o408T96vXSLUWNcIrOxQIVyM9NirpCdsHg15oceV7uoVSYOTFocqM; AWSALBCORS=mG+8uuCdN7mRVVTW735xCgH1rbSGtiP8ju8tEilPL4tFyeGsFXt3P4tvwg4/3ym0ZyFW4q+o408T96vXSLUWNcIrOxQIVyM9NirpCdsHg15oceV7uoVSYOTFocqM'
+          },
+          data : data
+        };
+
+        axios(config)
+        .then((response) => {
+          console.log("Upload URL" + response.data.upload_url);
+          // Request uploaded audio file for transcription to API
+          console.log("first request complete, starting second...");
+          var axios = require('axios');
+          var data = JSON.stringify({"audio_src_url":response.data.upload_url});
+
+          var config = {
+            method: 'post',
+            url: 'https://api.assemblyai.com/transcript',
+            headers: { 
+              'Content-Type': 'application/json', 
+              'Authorization': 'Bearer 37875e2f19134f3daee66ff2e1286489', 
+              'Cookie': 'AWSALB=V2WSvQVYqQuAWvXofAdvM4DtvDAU3qPwjwqfDrEuxIKtiFjbGAtB8rq/1gkzdqopoxI147U13raNhKrfYrQkq2X1P4rorbp8bdpgd2Y88qExKGuHMvvmzbUdkpZy; AWSALBCORS=V2WSvQVYqQuAWvXofAdvM4DtvDAU3qPwjwqfDrEuxIKtiFjbGAtB8rq/1gkzdqopoxI147U13raNhKrfYrQkq2X1P4rorbp8bdpgd2Y88qExKGuHMvvmzbUdkpZy'
+            },
+            data : data
+          };
+
+          axios(config)
+          .then((response) => {
+            console.log(JSON.stringify(response.data));
+            console.log("second request complete, starting third");
+            // Request trascribed audio from API
+            setTimeout(() => {;
+              var axios = require('axios');
+
+              var config = {
+                method: 'get',
+                url: `https://api.assemblyai.com/transcript/${response.data.transcript.id}`,
+                headers: { 
+                  'Authorization': 'Bearer 37875e2f19134f3daee66ff2e1286489', 
+                  'Cookie': 'AWSALB=7saooVq3NLCvJ5HIuMj7AjXuoojSENd+dybzQMCox0mSo2WSGVINjdnOPYYrnje5R/vLI31/XxCYWTybahObkNIrEtiq/FmY8GBvTfnqQOpQG2PT/MiJMubd/Dz7; AWSALBCORS=7saooVq3NLCvJ5HIuMj7AjXuoojSENd+dybzQMCox0mSo2WSGVINjdnOPYYrnje5R/vLI31/XxCYWTybahObkNIrEtiq/FmY8GBvTfnqQOpQG2PT/MiJMubd/Dz7'
+                }
+              };
+
+              axios(config)
+              .then((response) => {
+                console.log(JSON.stringify(response.data));
+                localThis.setState({message: response.data.transcript.text})
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+
+            }, 15000);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
         this.setState({ blobURL, isRecording: false });
       }).catch((e) => console.log(e));
   };
 
   resetForm() {
-
     this.setState({ name: '', email: '', message: '' })
   }
 
@@ -91,26 +152,33 @@ class Contact extends React.Component {
           <div className="form-container">
             <form id="contact-form">
               <div className="form-group">
-                <label htmlFor="name">Name</label>
+                <TextField
+                  required
+                  id="filled-required"
+                  label="Required"
+                  defaultValue="Hello World"
+                  placeholder="Name"
+                  variant="filled"
+                />
                 <input type="text" className="form-control" id="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address</label>
+                <label htmlFor="exampleInputEmail1">Email</label>
                 <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
               </div>
               <div className="form-group">
                 <label htmlFor="message">Message</label>
                 <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
               </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
               {/* record button */}
               <button onClick={this.start} disabled={this.state.isRecording}>
                 Record
               </button>
               <button onClick={this.stop} disabled={!this.state.isRecording}>
                 Stop
-              </button>
-              <audio src={this.state.blobURL} controls="controls" />
+              </button><br/><br/>
+              <button type="submit" className="btn btn-primary" onClick={()=>this.handleSubmit()}>Submit</button>
+              {/* <audio src={this.state.blobURL} controls="controls" /> */}
             </form>
           </div>
           <div className="info-container">
@@ -135,7 +203,7 @@ class Contact extends React.Component {
             <div>Monday to Friday, 9am - 5pm</div>
           </div>
         </div>
-        <pre>{JSON.stringify(this.state, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
       </div >
     );
   }

@@ -1,10 +1,15 @@
-/* .form-container {
+.form-container {
     width: 50%;
-    background: lightblue;
+    /* background: lightblue; */
     display: inline-block;
+    height: auto;
 }
 
-.info-container {
+.form-control {
+    width: 100%;
+}
+
+/* .info-container {
     width: 50%;
     background: orange;
     display: inline-block;

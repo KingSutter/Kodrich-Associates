@@ -63,3 +63,10 @@ typings/
 
 # ignore package-lock as it complicates merging
 package-lock.json
+
+#ignore hidden.env
+secret.env
+
+kakey
+kingsutter
+kodrich.txt
