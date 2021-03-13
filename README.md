@@ -6,8 +6,8 @@ If you haven't yet installed npm and Node.js, please follow [this link](https://
 
 ## Running the program
 
-1. Clone the repository from this https://github.com/KingSutter/Kodrich-Associates/tree/AssemblyAI-integration GitHub link into VS Code or your preferred code editing software. 
-    - Use the following command to clone the specific branch: 
+1. Clone the repository from [this GitHub link](https://github.com/KingSutter/Kodrich-Associates/tree/AssemblyAI-integration) into VS Code or your preferred code editing software. 
+    - Use the following command to clone the specific branch. The master branch DOES NOT have the voice transcription feature: 
     - `git clone -b AssemblyAI-integration https://github.com/KingSutter/Kodrich-Associates.git`
 2. Run `npm i` on bash (or your preferred method to install dependencies).
 3. Replace `KEY HERE` with your API key on line 15 of the Contact.js file (file path: Kodrich-Associates\src\components\Contact\Contact.js) OR simply type the API key into the text box on the Contact page
