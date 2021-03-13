@@ -155,7 +155,13 @@ class Contact extends React.Component {
     .then((response) => {
       console.log(JSON.stringify(response.data));
       //only if the request returns a completed transcription will the message change
-      if (response.data.transcript.text != null){this.setState({message: this.state.message + response.data.transcript.text});}
+      if (response.data.transcript.text != null){
+        if (this.state.message.charAt(this.state.message.length -1) == " "){
+          this.setState({message: this.state.message + response.data.transcript.text});
+        }
+        else {
+          this.setState({message: this.state.message + " " + response.data.transcript.text});}
+      }
       // stop checking every 5 seconds if status returns completed
       if (response.data.transcript.status == "completed"){clearInterval(this.interval);}
     })
