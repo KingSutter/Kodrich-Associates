@@ -5,14 +5,14 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
-import SaveIcon from '@material-ui/icons/Save';
+import PublishIcon from '@material-ui/icons/Publish';
 import CancelIcon from '@material-ui/icons/Cancel';
 import SendIcon from '@material-ui/icons/Send';
 // import dotenv from 'dotenv';
 
-const dotenv = require('dotenv').config();
+// const dotenv = require('dotenv').config();
 
-const API_Key = "YOUR KEY HERE" //replace with your own API key here
+const API_Key = "KEY HERE" //replace with your own API key here OR type it into the text box on the Contact page
 
 const MicRecorder = require('mic-recorder-to-mp3');
 const Mp3Recorder = new MicRecorder({bitrate: 128});
@@ -39,8 +39,7 @@ class Contact extends React.Component {
       blobURL: '',
       isBlocked: false,
       convertedMessage: '',
-      countdown: false,
-      timer: 20,
+      apiKey: API_Key,
     }
   }
   
@@ -78,7 +77,7 @@ class Contact extends React.Component {
   };
 
   cancel = () => {
-    this.setState({isRecording: false, countdown: false});
+    this.setState({isRecording: false});
     Mp3Recorder
       .stop()
   }
@@ -97,7 +96,7 @@ class Contact extends React.Component {
           url: 'https://api.assemblyai.com/v2/upload',
           headers: { 
             'Transfer-Encoding': 'chunked', 
-            'Authorization': `Bearer ${API_Key}`, // add in API key client-side on line 15
+            'Authorization': `Bearer ${this.state.apiKey}`, // add in API key client-side on line 15
             'Content-Type': 'audio/mpeg', 
           },
           data : data
@@ -115,7 +114,7 @@ class Contact extends React.Component {
             url: 'https://api.assemblyai.com/transcript',
             headers: { 
               'Content-Type': 'application/json', 
-              'Authorization': `Bearer ${API_Key}`, // add in API key client-side on line 15
+              'Authorization': `Bearer ${this.state.apiKey}`, // add in API key client-side on line 15
             },
             data : data
           };
@@ -124,7 +123,7 @@ class Contact extends React.Component {
           .then((response) => {
             console.log(JSON.stringify(response.data));
             console.log("second request complete, starting third");
-            // Request trascribed audio from API after 15 seconds using helper function getTranscription
+            // Request trascribed audio from API every 5 seconds using helper function getTranscription
             this.interval = setInterval(() => {
               this.getTranscription(response.data.transcript.id);
             }, 5000);
@@ -138,7 +137,7 @@ class Contact extends React.Component {
         .catch(function (error) {
           console.log(error);
         });
-        this.setState({ blobURL, isRecording: false, countdown: true, timer: 20 });
+        this.setState({ blobURL, isRecording: false});
       }).catch((e) => console.log(e));
   };
 
@@ -148,7 +147,7 @@ class Contact extends React.Component {
       method: 'get',
       url: `https://api.assemblyai.com/transcript/${id}`,
       headers: { 
-        'Authorization': `Bearer ${API_Key}`, // add in API key client-side on line 15
+        'Authorization': `Bearer ${this.state.apiKey}`, // add in API key client-side on line 15
       }
     };
 
@@ -175,6 +174,10 @@ class Contact extends React.Component {
 
   onMessageChange(event) {
     this.setState({ message: event.target.value })
+  }
+
+  onKeyChange(event) {
+    this.setState({ apiKey: event.target.value })
   }
   
   resetForm() {
@@ -219,7 +222,6 @@ class Contact extends React.Component {
                     required
                     id="filled-required"
                     label="Name"
-                    defaultValue="Hello World"
                     placeholder="John/Jane Doe"
                     variant="filled"
                     value={this.state.name} onChange={this.onNameChange.bind(this)}
@@ -231,8 +233,6 @@ class Contact extends React.Component {
                     required
                     id="filled-required"
                     label="Email"
-                    required
-                    defaultValue="Hello World"
                     placeholder="example@gmail.com"
                     variant="filled"
                     value={this.state.email} onChange={this.onEmailChange.bind(this)}
@@ -253,6 +253,15 @@ class Contact extends React.Component {
                     onChange={this.onMessageChange.bind(this)}
                     />
                 </div>
+                <div className="form-group">
+                <TextField
+                    id="filled"
+                    label="API Key"
+                    variant="filled"
+                    value={this.state.API_Key} onChange={this.onKeyChange.bind(this)}
+                    fullWidth={true}
+                  />
+                </div>
                 {/* record button */}
                   <Button className="record-buttons" onClick={this.start} disabled={this.state.isRecording} variant="contained" color="primary" startIcon={<KeyboardVoiceIcon />}>
                     Record
@@ -260,23 +269,11 @@ class Contact extends React.Component {
                   <Button className="record-buttons" onClick={this.cancel} disabled={!this.state.isRecording} variant="contained" color="primary" startIcon={<CancelIcon />}>Cancel</Button>
                   {/* stop button */}
                   <br/><br/>
-                  <Button className="record-buttons" onClick={this.stop} disabled={!this.state.isRecording} variant="contained" color="primary" startIcon={<SaveIcon />}>
+                  <Button className="record-buttons" onClick={this.stop} disabled={!this.state.isRecording} variant="contained" color="primary" startIcon={<PublishIcon />}>
                     Transcribe
                   </Button> <br/><br/>
-                  {/* <CountdownCircleTimer
-                    reset={this.state.countdown}
-                    isPlaying={this.state.countdown}
-                    duration={20}
-                    size={100}
-                    colors={[
-                      ['#00acb0', 0.33],
-                    ]}
-                  >
-                    {({ remainingTime }) => remainingTime}
-                  </CountdownCircleTimer> */}
                   <br/><br/>
-                  <Button type="submit" variant="contained" color="primary" onClick={()=>this.handleSubmit() } startIcon={<SendIcon />}>Send</Button>
-                
+                  <Button type="submit" variant="contained" color="primary" onClick={()=>this.handleSubmit()} startIcon={<SendIcon />}>Send</Button>
                 {/* The commented out code below shows the recorded audio file. Will save for later if needed */}
                 {/* <audio src={this.state.blobURL} controls="controls" /> */}
             </div>
