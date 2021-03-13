@@ -3,15 +3,16 @@ import axios from 'axios';
 import './Contact.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
-import Icon from '@material-ui/core/Icon';
 import SaveIcon from '@material-ui/icons/Save';
 import CancelIcon from '@material-ui/icons/Cancel';
 import SendIcon from '@material-ui/icons/Send';
 // import dotenv from 'dotenv';
 
 const dotenv = require('dotenv').config();
+
+const API_Key = "YOUR KEY HERE" //replace with your own API key here
 
 const MicRecorder = require('mic-recorder-to-mp3');
 const Mp3Recorder = new MicRecorder({bitrate: 128});
@@ -38,6 +39,8 @@ class Contact extends React.Component {
       blobURL: '',
       isBlocked: false,
       convertedMessage: '',
+      countdown: false,
+      timer: 20,
     }
   }
   
@@ -65,6 +68,7 @@ class Contact extends React.Component {
     if (this.state.isBlocked) {
       console.log('Permission Denied');
     } else {
+      this.setState({ countdown: true });
       Mp3Recorder
         .start()
         .then(() => {
@@ -74,7 +78,7 @@ class Contact extends React.Component {
   };
 
   cancel = () => {
-    this.setState({isRecording: false });
+    this.setState({isRecording: false, countdown: false});
     Mp3Recorder
       .stop()
   }
@@ -93,7 +97,7 @@ class Contact extends React.Component {
           url: 'https://api.assemblyai.com/v2/upload',
           headers: { 
             'Transfer-Encoding': 'chunked', 
-            'Authorization': `Bearer [KEY HERE]`, // add in API key client-side, this is public at the moment
+            'Authorization': `Bearer ${API_Key}`, // add in API key client-side on line 15
             'Content-Type': 'audio/mpeg', 
           },
           data : data
@@ -111,7 +115,7 @@ class Contact extends React.Component {
             url: 'https://api.assemblyai.com/transcript',
             headers: { 
               'Content-Type': 'application/json', 
-              'Authorization': 'Bearer [KEY HERE]', // add in API key client-side, this is public at the moment
+              'Authorization': `Bearer ${API_Key}`, // add in API key client-side on line 15
             },
             data : data
           };
@@ -120,29 +124,11 @@ class Contact extends React.Component {
           .then((response) => {
             console.log(JSON.stringify(response.data));
             console.log("second request complete, starting third");
-            // Request trascribed audio from API after 15 seconds
-            setTimeout(() => {;
-              var config = {
-                method: 'get',
-                url: `https://api.assemblyai.com/transcript/${response.data.transcript.id}`,
-                headers: { 
-                  'Authorization': 'Bearer [KEY HERE]', // add in API key client-side, this is public at the moment
-                }
-              };
-
-              axios(config)
-              .then((response) => {
-                console.log(JSON.stringify(response.data));
-                //only if the request returns a completed transcription will the message change
-                if (response.data.transcript.text != null){
-                this.setState({message: this.state.message + response.data.transcript.text})
-              }
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
-
-            }, 20000);
+            // Request trascribed audio from API after 15 seconds using helper function getTranscription
+            this.interval = setInterval(() => {
+              this.getTranscription(response.data.transcript.id);
+            }, 5000);
+            
           })
           .catch(function (error) {
             console.log(error);
@@ -152,9 +138,32 @@ class Contact extends React.Component {
         .catch(function (error) {
           console.log(error);
         });
-        this.setState({ blobURL, isRecording: false });
+        this.setState({ blobURL, isRecording: false, countdown: true, timer: 20 });
       }).catch((e) => console.log(e));
   };
+
+  getTranscription(id) {
+    console.log("checking for return");
+    var config = {
+      method: 'get',
+      url: `https://api.assemblyai.com/transcript/${id}`,
+      headers: { 
+        'Authorization': `Bearer ${API_Key}`, // add in API key client-side on line 15
+      }
+    };
+
+    axios(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+      //only if the request returns a completed transcription will the message change
+      if (response.data.transcript.text != null){this.setState({message: this.state.message + response.data.transcript.text});}
+      // stop checking every 5 seconds if status returns completed
+      if (response.data.transcript.status == "completed"){clearInterval(this.interval);}
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
   onNameChange(event) {
     this.setState({ name: event.target.value })
@@ -253,15 +262,28 @@ class Contact extends React.Component {
                   <br/><br/>
                   <Button className="record-buttons" onClick={this.stop} disabled={!this.state.isRecording} variant="contained" color="primary" startIcon={<SaveIcon />}>
                     Transcribe
-                  </Button><br/><br/>
+                  </Button> <br/><br/>
+                  {/* <CountdownCircleTimer
+                    reset={this.state.countdown}
+                    isPlaying={this.state.countdown}
+                    duration={20}
+                    size={100}
+                    colors={[
+                      ['#00acb0', 0.33],
+                    ]}
+                  >
+                    {({ remainingTime }) => remainingTime}
+                  </CountdownCircleTimer> */}
+                  <br/><br/>
                   <Button type="submit" variant="contained" color="primary" onClick={()=>this.handleSubmit() } startIcon={<SendIcon />}>Send</Button>
                 
                 {/* The commented out code below shows the recorded audio file. Will save for later if needed */}
                 {/* <audio src={this.state.blobURL} controls="controls" /> */}
             </div>
           </ThemeProvider>
+          {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
         </div>
-        {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
+        
       </div >
     );
   }
