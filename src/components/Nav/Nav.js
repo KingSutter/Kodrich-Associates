@@ -55,7 +55,7 @@ class Nav extends Component {
           <MenuItem onClick={()=>this.props.history.push(`/vendors`)}><i>Overview</i></MenuItem>
           <MenuItem onClick={()=>this.props.history.push(`/vendors/invincible`)}>Invincible Furniture</MenuItem>
           <MenuItem onClick={()=>this.props.history.push(`/vendors/om`)}>OM Seating</MenuItem>
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/zgo`)}>ZGO Solutions</MenuItem>
+          <MenuItem onClick={()=>this.props.history.push(`/vendors/zgo`)}>Zgo Technologies</MenuItem>
         </Menu>
         <Link className="nav-link" to="/about">
           About
