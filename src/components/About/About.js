@@ -19,7 +19,6 @@ const About = () => (
         <td><img src="img/Cassie.jpg" alt="Cassie Bohmbach profile photo"/></td>
         <td>
           <p>Cassie Bohmbach</p>
-          {/* <p style={{fontStyle:"italic"}}>position here</p> */}
           <p>Joined Kodrich Associates, Inc. in 2019.</p>
         </td>
       </tr>

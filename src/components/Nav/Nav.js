@@ -52,12 +52,10 @@ class Nav extends Component {
           onClose={this.handleClose}
           MenuListProps={{ onMouseLeave: this.handleClose }}
         >
-          <MenuItem onClick={()=>this.props.history.push(`/vendors`)}>Vendors Overview</MenuItem>
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/coriander`)}>Coriander Designs</MenuItem>
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/om`)}>OM Seating</MenuItem>
-          {/* <MenuItem onClick={()=>this.props.history.push(`/vendors/standup`)}>Stand Up Desking</MenuItem> */}
+          <MenuItem onClick={()=>this.props.history.push(`/vendors`)}><i>Overview</i></MenuItem>
           <MenuItem onClick={()=>this.props.history.push(`/vendors/invincible`)}>Invincible Furniture</MenuItem>
-          <MenuItem onClick={()=>this.props.history.push(`/vendors/afra`)}>AFRA Furniture</MenuItem>
+          <MenuItem onClick={()=>this.props.history.push(`/vendors/om`)}>OM Seating</MenuItem>
+          <MenuItem onClick={()=>this.props.history.push(`/vendors/zgo`)}>ZGO Solutions</MenuItem>
         </Menu>
         <Link className="nav-link" to="/about">
           About

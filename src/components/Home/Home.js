@@ -33,7 +33,6 @@ class UserPage extends Component {
 
   state = {
     timer: 0,
-    // myRef = React.createRef()
   }
   handleImageClick = (vendor) => {
     this.props.history.push({
@@ -157,11 +156,9 @@ class UserPage extends Component {
         Dedicated to provide you with product knowledge, hands on assistance, customer service, demos and quality manufacturers. Our goal is to “Make doing business easy”.
         </div>
           <div className = "logo-container">
-            <img className="companyLogo" onClick={()=>this.handleImageClick("coriander")} src="img/Coriander-logo.png"/>
-            <img className="companyLogo" onClick={()=>this.handleImageClick("om")} src="img/om-logo.png"/>
-            {/* <img className="companyLogo" onClick={()=>this.handleImageClick("standup")} src="img/Standup-logo.png"/> */}
             <img className="companyLogo" onClick={()=>this.handleImageClick("invincible")} src="img/Invincible-logo.png"/>
-            <img className="companyLogo" id="afraLogo" onClick={()=>this.handleImageClick("afra")} src="img/Afra-logo.png"/>
+            <img className="companyLogo" onClick={()=>this.handleImageClick("om")} src="img/om-logo.png"/>
+            <img className="companyLogo" id="zgoLogo" onClick={()=>this.handleImageClick("zgo")} src="img/Zgo-logo.png"/>
           </div>
         {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
       </div>

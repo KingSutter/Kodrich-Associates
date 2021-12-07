@@ -19,28 +19,12 @@ class Vendors extends Component {
                 <table width="90%" border="0" cellpadding="30%">
                     <tr>
                         <td>
-                            <img src="img/Coriander-logo.png" alt="Coriander logo" onClick={()=>this.handleImageClick("coriander")}/>
-                        </td>
-                        <td>
-                            Manufactured in the USA. Coriander Designs offers products and services that address the unique needs in Corporate, Healthcare and the Education Environments. Any standard or custom product can be manipulated to meet a project’s precise requirements. Sustainability.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <img src="img/om-logo.png" alt="OM logo" onClick={()=>this.handleImageClick("om")}/>
                         </td>
                         <td>
                             The OM mission is to solve everyday seating requirements with value-based and ergonomic focused product. We are focused on delivering smart solutions to our customers wide range of needs. We stock many fabrics to offer our quick shipping on our products. Quality, cost efficient product for Corporate, Education, Healthcare, Government or Hospitality.
                         </td>
                     </tr>
-                    {/* <tr>
-                        <td>
-                            <img src="img/Standup-logo.png" alt="Standup logo" onClick={()=>this.handleImageClick("standup")}/>
-                        </td>
-                        <td>
-                            Empowering employees to transition from seated to standing positions throughout the day can help increase productivity and improve employee wellness. With mechanisms for all major office furniture manufacturers, standUP makes it easy for designers and dealers to spec standUP’s sit/stand mechanisms into new projects, or retrofit existing office furniture.
-                        </td>
-                    </tr> */}
                     <tr>
                         <td>
                             <img src="img/Invincible-logo.png" alt="Invincible logo" onClick={()=>this.handleImageClick("invincible")}/>
@@ -51,10 +35,10 @@ class Vendors extends Component {
                     </tr>
                     <tr>
                         <td>
-                            <img src="img/Afra-logo.png" alt="Afra logo" onClick={()=>this.handleImageClick("afra")}/>
+                            <img src="img/Zgo-logo.png" alt="Zgo logo" onClick={()=>this.handleImageClick("Zgo")}/>
                         </td>
                         <td>
-                            AFRA furniture offers a commercial and industrial furniture design representing comfort and innovation, using a broad spectrum of materials, technologies, finishes and colors. We are focused on diversity in design that is suitable for every project and environment. Our goal is to improve our quality of life, by supporting sustainability, innovation and training. AFRA is continuously looking to offer durability, purpose and harmony in all of our furniture.
+                        Zgo Technologies' award-winning products help to optimize the computing experience by enhancing user comfort, increasing desk performance and improving overall office aesthetics while using today’s technology in the most effective way. Our monitor arms stand apart with our patented Integrated USB Docking Station, Zdock, which attaches to the base of your Zgo Monitor Arm, our heavy-duty weight capacity, which supports all monitors up to 38” and our custom side panels, which come in a variety of colors and designs.
                         </td>
                     </tr>
                 </table>

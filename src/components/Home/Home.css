@@ -4,14 +4,9 @@
 }
 
 .companyLogo{
-    /* height: 100%; */
     max-width: 240px;
     margin: 40px 40px 40px 40px;
     cursor: pointer;
-}
-
-#afraLogo {
-    max-width: 150px;
 }
 
 .slide-container {
@@ -19,9 +14,6 @@
 }
 
 .slide-container img {
-    /* max-width: 100%; */
-    /* object-fit: cover; */
-    /* height: auto; */
     width: 99vw;
 }
 
@@ -32,11 +24,13 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 100px;
+    
 }
 
 .logo-container img {
     flex-grow: 1;
     flex-shrink: 0;
+   
 }
 
 .mission-statement {
@@ -45,13 +39,3 @@
     margin-top: 3vh;
     margin-bottom: 3vh;
 }
-
-/* .slideshow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slideshow img {
-    position: absolute;
-} */
