@@ -15,10 +15,7 @@ const fadeImages = [
   'img/home7.jpg',
   'img/home8.jpg',
   'img/home9.jpg',
-  'img/home10.jpg',
-  'img/home11.jpg',
   'img/home12.jpg',
-  'img/home13.jpg',
   'img/home14.jpg',
   'img/home15.jpg',
   'img/home16.jpg',
@@ -133,21 +130,6 @@ class UserPage extends Component {
             <div className="each-fade">
               <div className="image-container">
                 <img src={fadeImages[17]} alt="slide image 18" />
-              </div>
-            </div>
-            <div className="each-fade">
-              <div className="image-container">
-                <img src={fadeImages[18]} alt="slide image 19"/>
-              </div>
-            </div>
-            <div className="each-fade">
-              <div className="image-container">
-                <img src={fadeImages[19]} alt="slide image 20" />
-              </div>
-            </div>
-            <div className="each-fade">
-              <div className="image-container">
-                <img src={fadeImages[20]} alt="slide image 21" />
               </div>
             </div>
           </Fade>
